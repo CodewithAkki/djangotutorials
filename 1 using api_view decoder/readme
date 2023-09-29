@@ -1,0 +1,71 @@
+1) create django project
+2) create django app
+3) create restful end point
+
+4) how to change port number 
+
+from django.core.management.commands.runserver import Command as runserver
+runserver.default_port="8080"
+
+python manage.py runserver 8080
+
+
+ORM
+
+filter : get multiple objects of data according to column return Queryset List
+data=users_models.students.objects.filter(username="akshay") 
+output : <QuerySet [<students: 1 akshay 123190.220>]>
+
+get : get single object of data 
+data=users_models.students.objects.get(id=1)
+recommanded to use primary key
+output : <students: 1 akshay 123190.220>
+
+
+create : to create records in table
+data=users_models.students.objects.create(username="akshay",salary=12312.324)
+
+delete: to delete the record
+
+data=users_models.students.objects.filter(username="akshay",salary=12312.324)
+data.delete()
+
+data=users_models.students.objects.get(username="akshay",salary=12312.324)
+data.delete()
+
+values:get records of selected columns
+    data.values('username','salary'))
+
+STATUS CODE
+201 : create
+200 : ok
+204 : no content
+
+400 : bad request
+
+
+DJANGO RAPERS
+
+1) @api_view() decorater used by function : it is used to tell django 
+               which http method that function is implements
+               and then django take care of that at runtime
+2) APIView it is used to create classbased views
+
+throw 405 automatically if user wants the method which we not implemented
+1)
+    api_view(['GET','POST'])
+    def student_list(request):
+
+    api_view(['PUT','PATCH','DELETE'])
+    def student_list(request,pk):
+NOTE : 
+ for PATCH method partial=True in serializer
+
+SERIALIZER
+1) serizlizer.serialize
+2) serializer.ModelSeralizer
+
+2) 
+
+
+
